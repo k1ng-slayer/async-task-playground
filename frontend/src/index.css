@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f4f8fb;
+    --surface: #ffffff;
+    --surface-soft: #eef4f7;
+    --text: #1b2a34;
+    --muted: #5f7280;
+    --brand: #0b7f8f;
+    --brand-strong: #0a5f6b;
+    --accent: #f2a541;
+    --danger: #d1495b;
+    --ok: #2a9d8f;
+    --line: #d6e3ea;
+  }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    background:
+      radial-gradient(
+        circle at 90% -20%,
+        rgba(11, 127, 143, 0.2),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(242, 165, 65, 0.14),
+        transparent 35%
+      ),
+      var(--bg);
+  }
+
+  * {
+    cursor: default;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea {
+    cursor: text;
+  }
+
+  button,
+  a,
+  select,
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border p-5;
+    background-color: var(--surface);
+    border-color: var(--line);
+    box-shadow: 0 14px 30px -24px rgba(11, 45, 66, 0.55);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    background: linear-gradient(120deg, var(--brand), var(--brand-strong));
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    color: var(--text);
+    border-color: var(--line);
+    background-color: #f8fbfd;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    background-color: var(--danger);
+  }
+
+  .field {
+    @apply w-full rounded-xl border px-3 py-2 outline-none transition-colors;
+    border-color: var(--line);
+    background-color: #fcfeff;
+  }
+
+  .field:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(11, 127, 143, 0.2);
+  }
+}
